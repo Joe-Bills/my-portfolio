@@ -62,7 +62,7 @@ export default function Contact() {
             <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 4.41 2.87 8.15 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.28.1-2.67 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 2.5-.34c.85 0 1.7.11 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.39.2 2.42.1 2.67.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.5-4.46-9.96-9.96-9.96z"/></svg>
             Portfolio:
           </span>
-          [Insert Link]
+          <a href="https://my-portfolio-y3yo.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#8ecfff' }}>my-portfolio-y3yo.vercel.app</a>
         </li>
       </ul>
       <p style={{ color: '#8ecfff', fontSize: 20, marginTop: 16 }}>Feel free to contact me for collaboration, job opportunities, or any inquiries!</p>
