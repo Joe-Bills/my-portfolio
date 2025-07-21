@@ -33,7 +33,7 @@ export default function About() {
       <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
       <section>
         <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Education</h3>
-        <p><strong>Bachelor of Science in Computer Science</strong><br />Institute Of Accountancy Arusha - Arusha, Tanzania<br />2022 – 2025<br />GPA: Currently Waiting For Results<br />Final Year Project: <span style={{ color: '#2d8cff' }}>&quot;CHARTBOT-ADVANCED ALGORITHMIC TRADING FOR MT5&quot;</span></p>
+        <p><strong>Bachelor of Science in Computer Science</strong><br />Institute Of Accountancy Arusha - Arusha, Tanzania<br />2022 - 2025<br />GPA: Currently Waiting For Results<br />Final Year Project: <span style={{ color: '#2d8cff' }}>&quot;CHARTBOT-ADVANCED ALGORITHMIC TRADING FOR MT5&quot;</span></p>
       </section>
       <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
       <section>
