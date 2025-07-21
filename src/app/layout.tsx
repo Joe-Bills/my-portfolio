@@ -58,6 +58,7 @@ export default function RootLayout({
           marginBottom: 32
         }}>
           <ul style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: '12px 0', justifyContent: 'center', fontSize: 18, fontWeight: 500 }}>
+            <li><a href="/" style={{ color: 'inherit' }}>Home</a></li>
             <li><a href="/about" style={{ color: 'inherit' }}>About</a></li>
             <li><a href="/projects" style={{ color: 'inherit' }}>Projects</a></li>
             <li><a href="/contact" style={{ color: 'inherit' }}>Contact</a></li>
