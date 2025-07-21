@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,7 +59,7 @@ export default function RootLayout({
           marginBottom: 32
         }}>
           <ul style={{ display: 'flex', gap: 32, listStyle: 'none', margin: 0, padding: '12px 0', justifyContent: 'center', fontSize: 18, fontWeight: 500 }}>
-            <li><a href="/" style={{ color: 'inherit' }}>Home</a></li>
+            <li><Link href="/" style={{ color: 'inherit' }}>Home</Link></li>
             <li><a href="/about" style={{ color: 'inherit' }}>About</a></li>
             <li><a href="/projects" style={{ color: 'inherit' }}>Projects</a></li>
             <li><a href="/contact" style={{ color: 'inherit' }}>Contact</a></li>
