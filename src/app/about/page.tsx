@@ -33,7 +33,7 @@ export default function About() {
       <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
       <section>
         <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Education</h3>
-        <p><strong>Bachelor of Science in Computer Science</strong><br />Institute Of Accountancy Arusha - Arusha, Tanzania<br />2022 - 2025<br />GPA: Currently Waiting For Results<br />Final Year Project: <span style={{ color: '#2d8cff' }}>&quot;CHARTBOT-ADVANCED ALGORITHMIC TRADING FOR MT5&quot;</span></p>
+        <p><strong>Bachelor of Science in Computer Science</strong><br />Institute of Accountancy Arusha (IAA) — Arusha, Tanzania<br />2022 – 2025 &nbsp;|&nbsp; <strong style={{ color: '#2d8cff' }}>GPA: 4.4 / 5.0 — First Class Honours</strong><br />Final Year Project: <span style={{ color: '#2d8cff' }}>&quot;CHARTBOT-ADVANCED ALGORITHMIC TRADING FOR MT5&quot;</span></p>
       </section>
       <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
       <section>
@@ -50,11 +50,14 @@ export default function About() {
       <section>
         <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Technical Skills</h3>
         <ul style={{ marginLeft: 24, columns: 2 }}>
-          <li><strong>Languages:</strong> JavaScript, PHP, HTML5, CSS3, SQL, Intermediate Level-Python</li>
-          <li><strong>Frameworks/Libraries:</strong> React.js, Express.js, Bootstrap, jQuery, Vanilla.js</li>
-          <li><strong>Databases:</strong> MySQL, MongoDB</li>
-          <li><strong>Tools & Platforms:</strong> GitHub, VS Code, XAMPP</li>
-          <li><strong>Other:</strong> RESTful APIs, Responsive Design, UI/UX Principles</li>
+          <li><strong>Languages:</strong> JavaScript, PHP, HTML5, CSS3, SQL, Python (Intermediate)</li>
+          <li><strong>Frameworks/Libraries:</strong> React.js, Next.js, Express.js, Bootstrap, jQuery</li>
+          <li><strong>Databases:</strong> MySQL, MongoDB, PostgreSQL</li>
+          <li><strong>Desktop:</strong> Electron.js (cross-platform desktop apps)</li>
+          <li><strong>Real-time:</strong> Socket.io, WebSockets</li>
+          <li><strong>Networking & Systems:</strong> Ubuntu CLI, Server Configuration & Deployment, Nginx, Docker</li>
+          <li><strong>Tools & Platforms:</strong> GitHub, VS Code, XAMPP, Vercel, PWA Development</li>
+          <li><strong>Other:</strong> RESTful APIs, JWT Auth, Responsive Design, UI/UX Principles</li>
         </ul>
       </section>
       <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />

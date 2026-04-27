@@ -44,27 +44,45 @@ export default function Home() {
           <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 13.065l-8-6.065v12h16v-12zm8-8.065h-16c-1.104 0-2 .896-2 2v.217l10 7.583 10-7.583v-.217c0-1.104-.896-2-2-2z"/></svg>
         </a>
       </div>
-      <div style={{ marginTop: 48, maxWidth: 900, width: '100%' }}>
-        <h3 style={{ color: '#8ecfff', fontSize: 26, marginBottom: 16 }}>Featured Projects</h3>
+      <div style={{ marginTop: 48, maxWidth: 960, width: '100%' }}>
+        <h3 style={{ color: '#8ecfff', fontSize: 26, marginBottom: 20 }}>Featured Projects</h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, justifyContent: 'center' }}>
-          <div style={{ background: 'rgba(24,31,42,0.97)', borderRadius: 16, boxShadow: '0 4px 24px #0006', padding: '24px 20px', minWidth: 260, maxWidth: 340, color: '#ededed', textAlign: 'left' }}>
-            <h4 style={{ color: '#2d8cff', fontSize: 20, marginBottom: 8 }}>CHARTBOT-ADVANCED ALGORITHMIC TRADING FOR MT5</h4>
-            <p style={{ color: '#8ecfff', fontWeight: 500, marginBottom: 8 }}>HTML, CSS, Vanilla JS, Python</p>
-            <ul style={{ fontSize: 15, lineHeight: 1.6, marginLeft: 18 }}>
-              <li>Interactive web interface for a chart-based chatbot</li>
-              <li>Python backend for chart generation and bot responses</li>
-            </ul>
-            <Link href="/projects" style={{ color: '#2d8cff', fontWeight: 600, fontSize: 15, marginTop: 8, display: 'inline-block' }}>See more</Link>
-          </div>
-          <div style={{ background: 'rgba(24,31,42,0.97)', borderRadius: 16, boxShadow: '0 4px 24px #0006', padding: '24px 20px', minWidth: 260, maxWidth: 340, color: '#ededed', textAlign: 'left' }}>
-            <h4 style={{ color: '#2d8cff', fontSize: 20, marginBottom: 8 }}>FOREX SIGNALS PLATFORM</h4>
-            <p style={{ color: '#8ecfff', fontWeight: 500, marginBottom: 8 }}>Node.js (Express), MongoDB, React.js</p>
-            <ul style={{ fontSize: 15, lineHeight: 1.6, marginLeft: 18 }}>
-              <li>Full-stack platform for managing and delivering forex trading signals</li>
-              <li>Real-time notifications, trading journal, and admin panel</li>
-            </ul>
-            <Link href="/projects" style={{ color: '#2d8cff', fontWeight: 600, fontSize: 15, marginTop: 8, display: 'inline-block' }}>See more</Link>
-          </div>
+          {[
+            {
+              title: 'JayWorld Desktop App',
+              tag: 'Native Desktop',
+              tech: 'Electron.js · SQL.js · Vanilla JS',
+              desc: 'Offline invoicing & inventory system for a client — multi-role auth, audit log, PDF export, no internet required.'
+            },
+            {
+              title: 'Milan ISP Management System',
+              tag: 'Live',
+              tech: 'PHP · MySQL · JavaScript',
+              desc: 'Full ISP back-office for subscriber management, field technician dispatch, tickets, and cable inventory.'
+            },
+            {
+              title: 'TapServe — QR Ordering',
+              tag: 'Ongoing',
+              tech: 'Express · PostgreSQL · Socket.io',
+              desc: 'QR restaurant ordering with real-time kitchen alerts, 3D food previews, and full payment management.'
+            },
+            {
+              title: 'ZYNET IPTV Web App',
+              tag: 'PWA',
+              tech: 'React · Vite · hls.js · Docker',
+              desc: 'Progressive Web App for live IPTV streaming, deployed on Ubuntu with Nginx and Docker.'
+            }
+          ].map((p, i) => (
+            <div key={i} style={{ background: 'rgba(24,31,42,0.97)', borderRadius: 16, boxShadow: '0 4px 24px #0006', padding: '22px 20px', minWidth: 240, maxWidth: 320, color: '#ededed', textAlign: 'left', borderTop: '3px solid #2d8cff', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                <h4 style={{ color: '#8ecfff', fontSize: 17, margin: 0 }}>{p.title}</h4>
+                <span style={{ background: '#1a2a3a', color: '#2d8cff', border: '1px solid #2d8cff', borderRadius: 20, padding: '2px 10px', fontSize: 11, fontWeight: 600, whiteSpace: 'nowrap' }}>{p.tag}</span>
+              </div>
+              <p style={{ color: '#4aa8ff', fontSize: 13, fontWeight: 500, margin: 0 }}>{p.tech}</p>
+              <p style={{ fontSize: 14, lineHeight: 1.6, margin: 0, color: '#cde' }}>{p.desc}</p>
+              <Link href="/projects" style={{ color: '#2d8cff', fontWeight: 600, fontSize: 13, marginTop: 4 }}>See all projects →</Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>
