@@ -1,6 +1,35 @@
 import React from "react";
+import Reveal from "@/components/Reveal";
+import TiltCard from "@/components/TiltCard";
 
-const projects = [
+type Project = {
+  title: string;
+  tech: string;
+  tag: string;
+  tagClass?: string;
+  bullets: string[];
+  link?: string;
+  linkLabel?: string;
+  download?: boolean;
+};
+
+const projects: Project[] = [
+  {
+    title: "MCTV ERP — One System for the Whole Business",
+    tech: "Python (FastAPI) · React 18 · PostgreSQL 16 · Redis · Docker",
+    tag: "Client · ERP",
+    tagClass: "tag purple",
+    bullets: [
+      "Multi-tenant ERP covering the full business cycle: Accounting & Finance, Sales, Procurement, Inventory, CRM, Fixed Assets, Business Intelligence and Administration",
+      "Double-entry accounting with integer-cent precision, multi-currency, tax rates, and printable financial reports (Trial Balance, P&L, Balance Sheet, Cash Flow)",
+      "Role-based access control (RBAC) with row-level tenant isolation, audit trail, and a formal 'Lockdown Kernel' verification layer",
+      "Production-grade architecture — Nginx load balancing, Gunicorn + Uvicorn API replicas, Docker Swarm, Prometheus/Grafana/Loki/Sentry monitoring",
+      "457+ backend tests, Vitest frontend tests, Playwright E2E, Locust load testing; PWA with full dark mode, offline shell, and guided onboarding tours",
+    ],
+    link: "/MCTV_ERP_Presentation.pptx",
+    linkLabel: "Download Presentation ↗",
+    download: true,
+  },
   {
     title: "CHARTBOT — ADVANCED ALGORITHMIC TRADING FOR MT5",
     tech: "HTML, CSS, Vanilla JS, Python",
@@ -15,6 +44,7 @@ const projects = [
     title: "FOREX SIGNALS PLATFORM",
     tech: "Node.js (Express), MongoDB, React.js",
     tag: "Full-Stack",
+    tagClass: "tag green",
     bullets: [
       "Full-stack platform for managing and delivering forex trading signals with user authentication and subscription tiers",
       "Real-time notifications via WebSockets, trading journal, activity logging, and an admin dashboard",
@@ -35,7 +65,9 @@ const projects = [
     title: "MILAN ISP MANAGEMENT SYSTEM",
     tech: "PHP (Core), MySQL, JavaScript, CSS",
     tag: "Live · milansip.mctv.co.tz",
+    tagClass: "tag green",
     link: "https://milansip.mctv.co.tz",
+    linkLabel: "View Live ↗",
     bullets: [
       "Full ISP back-office platform handling subscribers, support tickets, device tracking, and cable roll inventory",
       "Real-time call detection API, GPS-based field technician coordination with Google Maps integration",
@@ -66,6 +98,7 @@ const projects = [
     title: "FITNESS MANAGEMENT SYSTEM",
     tech: "HTML, CSS, Vanilla JS, PHP (Core)",
     tag: "Full-Stack",
+    tagClass: "tag green",
     bullets: [
       "Multi-role platform for admins, trainers, and clients with secure authentication and real-time messaging",
       "CRUD for users, workouts, and classes; trainer search, progress tracking, and profile image uploads",
@@ -75,46 +108,70 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-      gap: 32,
-      maxWidth: 1100,
-      margin: '0 auto',
-      padding: '32px 0'
-    }}>
-      {projects.map((project, idx) => (
-        <div key={idx} style={{
-          background: 'rgba(24,31,42,0.97)',
-          borderRadius: 16,
-          boxShadow: '0 4px 24px #0006',
-          padding: '32px 24px',
-          color: '#ededed',
-          display: 'flex', flexDirection: 'column', gap: 10,
-          borderTop: '3px solid #2d8cff'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, flexWrap: 'wrap' }}>
-            <h2 style={{ color: '#8ecfff', fontSize: 20, margin: 0, flex: 1 }}>{project.title}</h2>
-            {project.tag && (
-              <span style={{ background: '#1a2a3a', color: '#2d8cff', border: '1px solid #2d8cff', borderRadius: 20, padding: '2px 12px', fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap' }}>
-                {project.tag}
-              </span>
-            )}
+    <>
+      <section className="section" style={{ paddingBottom: 20 }}>
+        <Reveal>
+          <div className="section-head">
+            <span className="section-eyebrow">{"// projects"}</span>
+            <h2>
+              Things I&apos;ve <span className="gradient-text">Built</span>
+            </h2>
+            <p className="text-muted" style={{ marginTop: 14, maxWidth: 620, marginInline: "auto" }}>
+              From multi-tenant ERPs and real-time trading platforms to offline
+              desktop apps — every project shipped with clean architecture,
+              security-first thinking, and a responsive experience.
+            </p>
+            <div className="underline" />
           </div>
-          <p style={{ color: '#4aa8ff', fontWeight: 500, margin: 0, fontSize: 14 }}>
-            {project.tech}
-          </p>
-          <ul style={{ marginLeft: 18, fontSize: 15, lineHeight: 1.75, marginTop: 4 }}>
-            {project.bullets.map((b, i) => <li key={i}>{b}</li>)}
-          </ul>
-          {project.link && (
-            <a href={project.link} target="_blank" rel="noopener noreferrer"
-              style={{ color: '#2d8cff', fontWeight: 600, fontSize: 14, marginTop: 4, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-              View Live ↗
-            </a>
-          )}
+        </Reveal>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: 24,
+          }}
+        >
+          {projects.map((project, idx) => (
+            <Reveal key={project.title} delay={(idx % 3) * 90}>
+              <TiltCard className="h-100" maxTilt={6}>
+                <div className="card-top">
+                  <h3 className="card-title">
+                    <span className="mono" style={{ fontSize: 13, color: "#475569", marginRight: 6 }}>
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    {project.title}
+                  </h3>
+                  <span className={`tag ${project.tagClass ?? ""}`}>
+                    {project.tag}
+                  </span>
+                </div>
+                <div className="card-body">
+                  <p className="tech-line">{project.tech}</p>
+                  <ul>
+                    {project.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                  {project.link && (
+                    <a
+                      className="card-link"
+                      href={project.link}
+                      {...(project.download
+                        ? { download: "MCTV_ERP_Presentation.pptx" }
+                        : project.link.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                    >
+                      {project.linkLabel ?? "View Live ↗"}
+                    </a>
+                  )}
+                </div>
+              </TiltCard>
+            </Reveal>
+          ))}
         </div>
-      ))}
-    </section>
+      </section>
+    </>
   );
-} 
+}

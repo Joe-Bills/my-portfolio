@@ -1,96 +1,342 @@
 import React from "react";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
+import SkillBar from "@/components/SkillBar";
+
+const skillGroups = [
+  {
+    icon: "⌘",
+    title: "Frontend",
+    skills: [
+      { name: "React.js / Next.js", level: 92 },
+      { name: "HTML5 / CSS3", level: 95 },
+      { name: "TypeScript / JavaScript", level: 90 },
+      { name: "PWA / Responsive Design", level: 88 },
+    ],
+  },
+  {
+    icon: "⚙",
+    title: "Backend",
+    skills: [
+      { name: "Node.js / Express", level: 90 },
+      { name: "Python / FastAPI", level: 85 },
+      { name: "PHP (Core)", level: 82 },
+      { name: "REST APIs / JWT / WebSockets", level: 90 },
+    ],
+  },
+  {
+    icon: "▤",
+    title: "Databases & DevOps",
+    skills: [
+      { name: "PostgreSQL / MySQL", level: 86 },
+      { name: "MongoDB / SQLite", level: 82 },
+      { name: "Docker / Nginx / Linux", level: 80 },
+      { name: "Git / CI & Deployment", level: 88 },
+    ],
+  },
+];
+
+const timeline = [
+  {
+    when: "2022 – 2025",
+    title: "BSc Computer Science — Institute of Accountancy Arusha (IAA)",
+    body: (
+      <>
+        Arusha, Tanzania ·{" "}
+        <strong style={{ color: "#22d3ee" }}>GPA 4.4 / 5.0 — First Class Honours</strong>
+        <br />
+        Final Year Project:{" "}
+        <span style={{ color: "#22d3ee" }}>
+          &quot;CHARTBOT — Advanced Algorithmic Trading for MT5&quot;
+        </span>
+      </>
+    ),
+  },
+  {
+    when: "Jul – Sep 2024",
+    title: "IT Field Service — Regional Commissioner's Office [RAS], Arusha",
+    body: (
+      <ul>
+        <li>Assisted in deploying and maintaining network systems and office IT infrastructure</li>
+        <li>Installed and configured software on client machines</li>
+        <li>Provided technical support and troubleshooting for end users</li>
+        <li>Documented field reports and contributed to internal system improvements</li>
+      </ul>
+    ),
+  },
+  {
+    when: "Ongoing",
+    title: "Client Projects & Freelance Work",
+    body: (
+      <>
+        Building production systems for real clients — the JayWorld desktop
+        invoicing app, the Milan ISP management platform, the MCTV multi-tenant
+        ERP, and a live IPTV streaming PWA deployed on Ubuntu with Docker.
+      </>
+    ),
+  },
+];
+
+const certifications = [
+  "Full-Stack Web Development Online Training",
+  "Git & Version Control Essentials — Codecademy",
+  "Intro to APIs — freeCodeCamp",
+];
+
+const attributes = [
+  "Strong analytical and critical thinking",
+  "Fast learner and team collaborator",
+  "Detail-oriented and adaptive to new technologies",
+  "Eager to take initiative and deliver quality solutions",
+];
+
+const referees = [
+  ["Mr. Kimaro", "Regional ICT Officer", "0757 545 575"],
+  ["Mr. Yona", "Informatics Lecturer", "0763 762 334"],
+  ["Mr. Abraham Billa", "Parent", "0767 652 458"],
+  ["Madam Nahen", "CompSci Teacher", "0712 802 010"],
+  ["Madam Verediana", "CompSci Teacher", "0744 575 151 / 0624 450 193"],
+];
 
 export default function About() {
   return (
-    <section style={{
-      background: 'rgba(24,31,42,0.95)',
-      borderRadius: 18,
-      boxShadow: '0 4px 32px #0006',
-      padding: '40px 32px',
-      maxWidth: 900,
-      margin: '0 auto',
-      color: '#ededed',
-      fontSize: 18,
-      lineHeight: 1.7
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 32, marginBottom: 32 }}>
-        <Image src="/pro-pic.png" alt="Profile photo" width={100} height={100} style={{ borderRadius: '50%', border: '3px solid #2d8cff', objectFit: 'cover' }} />
-        <div>
-          <h2 style={{ fontSize: 32, fontWeight: 700, margin: 0 }}>Joseph Billa</h2>
-          <p style={{ color: '#8ecfff', fontSize: 20, margin: 0 }}>Full-Stack Developer | FX, Stocks and Crypto Trader</p>
-          <div style={{ marginTop: 8 }}>
-            <a href="mailto:josephbilla746@gmail.com" style={{ color: '#2d8cff', marginRight: 16 }}>josephbilla746@gmail.com</a>
-            <a href="https://github.com/Joe-Bills" target="_blank" rel="noopener noreferrer" style={{ color: '#ededed', marginRight: 16 }}>GitHub</a>
+    <>
+      <section className="section" style={{ paddingBottom: 24 }}>
+        <Reveal>
+          <div className="section-head">
+            <span className="section-eyebrow">{"// about"}</span>
+            <h2>
+              About <span className="gradient-text">Me</span>
+            </h2>
+            <div className="underline" />
           </div>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div
+            className="card"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 28,
+              padding: "28px 30px",
+              flexWrap: "wrap",
+              maxWidth: 860,
+              margin: "0 auto",
+            }}
+          >
+            <div className="avatar-wrap" style={{ position: "relative" }}>
+              <div className="avatar-glow" />
+              <Image
+                src="/pro-pic.png"
+                alt="Joseph Billa"
+                width={110}
+                height={110}
+                priority
+                style={{
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "3px solid rgba(34,211,238,0.6)",
+                  position: "relative",
+                }}
+              />
+            </div>
+            <div style={{ flex: 1, minWidth: 260 }}>
+              <h2 style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.02em" }}>
+                Joseph Billa
+              </h2>
+              <p style={{ color: "#22d3ee", fontSize: 17, marginTop: 4 }}>
+                Full-Stack Developer | FX, Stocks and Crypto Trader
+              </p>
+              <p className="text-muted" style={{ marginTop: 12, fontSize: 15, lineHeight: 1.7 }}>
+                A passionate and self-driven Computer Science graduate with
+                hands-on expertise in full-stack web development — building
+                dynamic, responsive applications with JavaScript, PHP, Python,
+                React and Express. Known for problem-solving ability, clean
+                code, and strong enthusiasm for impactful digital solutions.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="section" style={{ paddingTop: 32 }}>
+        <Reveal>
+          <div className="section-head">
+            <span className="section-eyebrow">{"// skills"}</span>
+            <h2>
+              Tech <span className="gradient-text">Stack</span>
+            </h2>
+            <div className="underline" />
+          </div>
+        </Reveal>
+
+        <div className="skills-grid">
+          {skillGroups.map((group, gi) => (
+            <Reveal key={group.title} delay={gi * 120}>
+              <div className="skill-card">
+                <h4>
+                  <span className="icon">{group.icon}</span>
+                  {group.title}
+                </h4>
+                {group.skills.map((s) => (
+                  <SkillBar key={s.name} name={s.name} level={s.level} />
+                ))}
+              </div>
+            </Reveal>
+          ))}
         </div>
-      </div>
-      <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
-      <section>
-        <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Profile Summary</h3>
-        <p>A passionate and self-driven Computer Science graduate with hands-on expertise in full-stack web development. Demonstrated skills in building dynamic, responsive web applications using modern technologies like JavaScript, PHP, HTML, CSS, and frameworks such as React and Express. Known for problem-solving ability, clean code, and strong enthusiasm for building impactful digital solutions.</p>
+
+        <Reveal delay={200}>
+          <div style={{ marginTop: 34 }}>
+            <h4 style={{ fontSize: 15, fontWeight: 700, marginBottom: 12, color: "#22d3ee" }}>
+              Also in the toolbox
+            </h4>
+            <div className="chip-list">
+              {[
+                "Electron.js",
+                "Socket.io",
+                "Bootstrap",
+                "jQuery",
+                "Tailwind CSS",
+                "HLS.js",
+                "SQL.js",
+                "Redis",
+                "Vite",
+                "XAMPP",
+                "Vercel",
+                "GitHub",
+                "VS Code",
+                "Ubuntu CLI",
+                "UI/UX Principles",
+              ].map((t) => (
+                <span key={t} className="chip">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </section>
-      <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
-      <section>
-        <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Education</h3>
-        <p><strong>Bachelor of Science in Computer Science</strong><br />Institute of Accountancy Arusha (IAA) — Arusha, Tanzania<br />2022 – 2025 &nbsp;|&nbsp; <strong style={{ color: '#2d8cff' }}>GPA: 4.4 / 5.0 — First Class Honours</strong><br />Final Year Project: <span style={{ color: '#2d8cff' }}>&quot;CHARTBOT-ADVANCED ALGORITHMIC TRADING FOR MT5&quot;</span></p>
+
+      <section className="section" style={{ paddingTop: 24 }}>
+        <Reveal>
+          <div className="section-head">
+            <span className="section-eyebrow">{"// journey"}</span>
+            <h2>
+              Education &amp; <span className="gradient-text">Experience</span>
+            </h2>
+            <div className="underline" />
+          </div>
+        </Reveal>
+
+        <div className="timeline">
+          {timeline.map((item, i) => (
+            <Reveal key={item.title} delay={i * 120}>
+              <div className="card timeline-item">
+                <div className="when">{item.when}</div>
+                <h4>{item.title}</h4>
+                <div className="text-muted">{item.body}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </section>
-      <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
-      <section>
-        <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Technical Field Service Experience</h3>
-        <p><strong>IT Field Service – Regional Commissioner’s Office [RAS], Arusha</strong><br />15TH JULY, 2024 – 6TH SEPTMBER, 2024</p>
-        <ul style={{ marginLeft: 24 }}>
-          <li>Assisted in deploying and maintaining network systems and office IT infrastructure</li>
-          <li>Installed and configured software on client machines</li>
-          <li>Provided technical support and troubleshooting for end users</li>
-          <li>Documented field reports and contributed to internal system improvements</li>
-        </ul>
+
+      <section className="section" style={{ paddingTop: 24 }}>
+        <Reveal>
+          <div className="section-head">
+            <span className="section-eyebrow">{"// credentials"}</span>
+            <h2>
+              Certifications &amp; <span className="gradient-text">Referees</span>
+            </h2>
+            <div className="underline" />
+          </div>
+        </Reveal>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 22,
+            maxWidth: 900,
+            margin: "0 auto",
+          }}
+        >
+          <Reveal>
+            <div className="card h-100">
+              <div className="card-top">
+                <h3 className="card-title">
+                  <span className="accent">Certifications</span> &amp; Training
+                </h3>
+              </div>
+              <div className="card-body">
+                <ul>
+                  {certifications.map((c, i) => (
+                    <li key={i}>
+                      <span className="mono" style={{ color: "#22d3ee", marginRight: 8 }}>
+                        ▹
+                      </span>
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-muted" style={{ marginTop: 18 }}>
+                  <span className="tag green">Verification</span>{" "}
+                  <span style={{ marginLeft: 8, fontSize: 13.5 }}>
+                    Copies available upon request.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="card h-100">
+              <div className="card-top">
+                <h3 className="card-title">
+                  <span className="accent">Personal</span> Attributes
+                </h3>
+              </div>
+              <div className="card-body">
+                <ul>
+                  {attributes.map((a, i) => (
+                    <li key={i}>
+                      <span className="mono" style={{ color: "#22d3ee", marginRight: 8 }}>
+                        ▹
+                      </span>
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div className="card h-100">
+              <div className="card-top">
+                <h3 className="card-title">
+                  <span className="accent">Referees</span>
+                </h3>
+              </div>
+              <div className="card-body">
+                <ul>
+                  {referees.map(([name, role, phone]) => (
+                    <li key={name}>
+                      <strong style={{ color: "#e2e8f0" }}>{name}</strong> — {role}
+                      <br />
+                      <span className="mono" style={{ fontSize: 13, color: "#22d3ee" }}>
+                        {phone}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </section>
-      <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
-      <section>
-        <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Technical Skills</h3>
-        <ul style={{ marginLeft: 24, columns: 2 }}>
-          <li><strong>Languages:</strong> JavaScript, PHP, HTML5, CSS3, SQL, Python (Intermediate)</li>
-          <li><strong>Frameworks/Libraries:</strong> React.js, Next.js, Express.js, Bootstrap, jQuery</li>
-          <li><strong>Databases:</strong> MySQL, MongoDB, PostgreSQL</li>
-          <li><strong>Desktop:</strong> Electron.js (cross-platform desktop apps)</li>
-          <li><strong>Real-time:</strong> Socket.io, WebSockets</li>
-          <li><strong>Networking & Systems:</strong> Ubuntu CLI, Server Configuration & Deployment, Nginx, Docker</li>
-          <li><strong>Tools & Platforms:</strong> GitHub, VS Code, XAMPP, Vercel, PWA Development</li>
-          <li><strong>Other:</strong> RESTful APIs, JWT Auth, Responsive Design, UI/UX Principles</li>
-        </ul>
-      </section>
-      <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
-      <section>
-        <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Certifications & Training</h3>
-        <ul style={{ marginLeft: 24 }}>
-          <li>Full-Stack Web Development Online Training</li>
-          <li>Git & Version Control Essentials – Codecademy</li>
-          <li>Intro to APIs – freeCodeCamp</li>
-        </ul>
-      </section>
-      <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
-      <section>
-        <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Personal Attributes</h3>
-        <ul style={{ marginLeft: 24, columns: 2 }}>
-          <li>Strong analytical and critical thinking</li>
-          <li>Fast learner and team collaborator</li>
-          <li>Detail-oriented and adaptive to new technologies</li>
-          <li>Eager to take initiative and deliver quality solutions</li>
-        </ul>
-      </section>
-      <hr style={{ border: 'none', borderTop: '1px solid #2d8cff', margin: '32px 0' }} />
-      <section>
-        <h3 style={{ color: '#8ecfff', fontSize: 24 }}>Referees</h3>
-        <ul style={{ marginLeft: 24 }}>
-          <li>Mr. Kimaro (REGIONAL ICT OFFICER ): 0757 545 575</li>
-          <li>Mr. Yona (INFORMATICS LECTURER): 0763 762 334</li>
-          <li>Mr. Abraham Billa (PARENT): 0767 652 458</li>
-          <li>Madam Nahen (CompSci TEACHER): 0712 802 010</li>
-          <li>Madam Verediana (CompSci TEACHER): 0744 575 151 / 0624 450 193</li>
-        </ul>
-        <p style={{ color: '#8ecfff', marginTop: 8 }}>Available upon request.</p>
-      </section>
-    </section>
+    </>
   );
-} 
+}
