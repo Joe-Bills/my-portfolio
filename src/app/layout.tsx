@@ -37,7 +37,7 @@ export default function RootLayout({
         <footer className="footer">
           <div className="container">
             <p>
-              © {new Date().getFullYear()} <span className="code">Joseph Billa</span> —
+              © 2022 <span className="code">Joseph Billa</span> —
               Designed &amp; built with <span className="heart">♥</span> using{" "}
               <span className="code">Next.js</span> +{" "}
               <span className="code">React</span>
