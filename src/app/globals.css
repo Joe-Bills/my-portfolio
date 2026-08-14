@@ -433,7 +433,7 @@ button {
 /* ---------- stats ---------- */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   width: 100%;
   max-width: 860px;
@@ -449,6 +449,7 @@ button {
   backdrop-filter: blur(8px);
   text-align: center;
   overflow: hidden;
+  min-width: 0;
 }
 
 .stat-card::before {
@@ -470,6 +471,7 @@ button {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }
 
 .stat-label {
@@ -479,6 +481,15 @@ button {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
 }
 
 /* ---------- section ---------- */
@@ -758,7 +769,7 @@ button {
 /* ---------- skills ---------- */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 18px;
   width: 100%;
 }
@@ -850,7 +861,7 @@ button {
 /* ---------- contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 18px;
   max-width: 960px;
   margin: 0 auto;
@@ -1041,6 +1052,10 @@ button {
   height: 100%;
 }
 
+.reveal.h-100 {
+  height: 100%;
+}
+
 .hr-glow {
   border: none;
   height: 1px;
@@ -1061,5 +1076,51 @@ button {
   .hero-ctas .btn {
     width: 100%;
     justify-content: center;
+  }
+  .stat-card {
+    padding: 16px 8px;
+  }
+  .stat-value {
+    font-size: 1.45rem;
+  }
+  .stat-label {
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+  }
+  .card-top {
+    padding: 22px 18px 4px;
+  }
+  .card-body {
+    padding: 10px 18px 22px;
+  }
+  .terminal-body {
+    font-size: 12px;
+    padding: 16px 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .stat-card {
+    padding: 13px 6px;
+    border-radius: 12px;
+  }
+  .stat-value {
+    font-size: 1.25rem;
+  }
+  .stat-label {
+    font-size: 9.5px;
+    letter-spacing: 0.03em;
+  }
+  .social-link {
+    width: 42px;
+    height: 42px;
+  }
+  .hero-ctas .btn {
+    padding: 12px 22px;
+    font-size: 14px;
   }
 }
