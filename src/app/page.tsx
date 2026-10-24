@@ -92,12 +92,6 @@ export default function Home() {
     <>
       <header>
         <div className="wrap">
-          <a className="logo" href="#top" aria-label="Joseph Billa, home">
-            <span>
-              Joseph <b>Billa</b>
-            </span>
-            <small>Full-stack developer</small>
-          </a>
           <nav>
             <a href="#work">Work</a>
             <a href="#about">About</a>

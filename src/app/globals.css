@@ -64,36 +64,10 @@ header {
 
 header .wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
-}
-
-.logo {
-  font-family: var(--serif);
-  font-size: 27px;
-  font-style: italic;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  line-height: 1;
-}
-
-.logo b {
-  color: var(--accent);
-  font-style: normal;
-  font-weight: 500;
-}
-
-.logo small {
-  font: 500 12px/1 var(--sans);
-  font-style: normal;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink);
 }
 
 nav {
@@ -814,13 +788,6 @@ footer {
 @media (max-width: 480px) {
   body {
     font-size: 16px;
-  }
-  .logo {
-    gap: 8px;
-    font-size: 23px;
-  }
-  .logo small {
-    display: none;
   }
   .contact {
     padding: 72px 0;
