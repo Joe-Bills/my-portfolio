@@ -1,295 +1,317 @@
-import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import TypingText from "@/components/TypingText";
-import Reveal from "@/components/Reveal";
-import TiltCard from "@/components/TiltCard";
-import StatCounter from "@/components/StatCounter";
-import TechMarquee from "@/components/TechMarquee";
+import ScrollReveal from "@/components/ScrollReveal";
+import WorkAccordion, { type WorkItem } from "@/components/WorkAccordion";
+import ContactForm from "@/components/ContactForm";
 
-const socials = [
+const work: WorkItem[] = [
   {
-    href: "https://github.com/Joe-Bills",
-    label: "GitHub",
-    d: "M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z",
+    title: "MCTV ERP System",
+    kind: "Client · Multi-tenant ERP",
+    body: "One role-based system for the whole business cycle: accounting, sales, procurement, inventory, CRM, fixed assets, BI and administration. Each tenant is isolated, and the code is backed by more than 457 passing tests.",
+    href: "/MCTV_ERP_Presentation.pptx",
+    linkLabel: "View the presentation ↗",
+    download: true,
+    chips: ["FastAPI", "React", "PostgreSQL", "Redis", "Docker"],
   },
   {
-    href: "https://www.linkedin.com/in/joseph-billa-5a2726288/",
-    label: "LinkedIn",
-    d: "M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z",
+    title: "Milan ISP Management",
+    kind: "Live · ISP back-office",
+    body: "The operational core of an internet service provider: subscriber records, field technician dispatch, support tickets and cable inventory in a single tool.",
+    href: "https://milansip.mctv.co.tz",
+    linkLabel: "Visit the live system ↗",
+    chips: ["PHP", "MySQL", "JavaScript"],
   },
   {
-    href: "https://instagram.com/trade_nami",
-    label: "Instagram",
-    d: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z",
+    title: "JayWorld Desktop",
+    kind: "Client · Offline app",
+    body: "Invoicing and inventory that works with no internet connection. Multi-role authentication, a full audit log and PDF export, packaged as a native desktop app.",
+    chips: ["Electron", "SQL.js", "Vanilla JS"],
   },
   {
-    href: "mailto:josephbilla746@gmail.com",
-    label: "Email",
-    d: "M12 13.065l-8-6.065v12h16v-12zm8-8.065h-16c-1.104 0-2 .896-2 2v.217l10 7.583 10-7.583v-.217c0-1.104-.896-2-2-2z",
+    title: "TapServe",
+    kind: "In progress · QR ordering",
+    body: "Guests order from a QR code at the table. The kitchen is alerted in real time, dishes can be previewed in 3D, and payments are managed end to end.",
+    chips: ["Express", "PostgreSQL", "Socket.io"],
+  },
+  {
+    title: "ZYNET IPTV",
+    kind: "Progressive web app",
+    body: "An installable web app for live IPTV streaming, deployed on Ubuntu behind Nginx and containerised with Docker.",
+    chips: ["React", "Vite", "hls.js", "Docker"],
+  },
+  {
+    title: "CHARTBOT",
+    kind: "Final-year project · Algo trading",
+    body: "A chart-driven trading assistant for MetaTrader 5. A Python backend runs the technical analysis and generates signals, shown through an interactive interface.",
+    chips: ["Python", "HTML", "CSS", "JavaScript"],
+  },
+  {
+    title: "Forex Signals Platform",
+    kind: "Full-stack · Signals platform",
+    body: "A subscription platform for delivering forex signals: authenticated tiers, real-time WebSocket notifications, a trading journal, activity logging, an admin dashboard and direct user-to-admin chat.",
+    chips: ["Express", "MongoDB", "React", "Socket.io"],
+  },
+  {
+    title: "Fitness Management System",
+    kind: "Full-stack · Fitness platform",
+    body: "A multi-role platform for gyms — admins, trainers and clients — with secure authentication, class and workout management, trainer search, progress tracking and real-time messaging.",
+    chips: ["PHP", "MySQL", "JavaScript"],
   },
 ];
 
-const featured = [
+const facts = [
+  { value: "8", label: "Systems shown here" },
+  { value: "Arusha", label: "Based in Tanzania" },
+  { value: "First Class", label: "BSc Computer Science" },
+  { value: "3 markets", label: "FX, stocks and crypto" },
+];
+
+const toolkit = [
+  ["Languages", "JavaScript, TypeScript, Python, PHP"],
+  ["Frontend", "React, Next.js, Tailwind CSS, Bootstrap, PWA"],
+  ["Backend", "Node.js, Express, FastAPI, REST APIs, JWT, Socket.io"],
+  ["Data", "PostgreSQL, MySQL, MongoDB, Redis, SQLite"],
+  ["Delivery", "Docker, Nginx, Linux (Ubuntu), Git and GitHub, Electron"],
+];
+
+const contactRows = [
+  { label: "WhatsApp", value: "+255 694 404 168", href: "https://wa.me/255694404168" },
+  { label: "Phone", value: "+255 750 404 168", href: "tel:+255750404168" },
+  { label: "Email", value: "josephbilla746@gmail.com", href: "mailto:josephbilla746@gmail.com" },
+  { label: "GitHub", value: "Joe-Bills", href: "https://github.com/Joe-Bills" },
   {
-    title: "MCTV ERP System",
-    tag: "Client · ERP",
-    tagClass: "tag purple",
-    tech: "FastAPI · React · PostgreSQL · Redis · Docker",
-    desc: "A multi-tenant ERP covering the full business cycle — Accounting, Sales, Procurement, Inventory, CRM, Fixed Assets, BI and Administration in one role-based system, with 457+ passing tests.",
-    link: "/MCTV_ERP_Presentation.pptx",
-    linkLabel: "View Presentation ↗",
-    download: true,
+    label: "LinkedIn",
+    value: "Joseph Billa",
+    href: "https://www.linkedin.com/in/joseph-billa-5a2726288/",
   },
-  {
-    title: "JayWorld Desktop App",
-    tag: "Native Desktop",
-    tech: "Electron.js · SQL.js · Vanilla JS",
-    desc: "Offline invoicing & inventory system for a client — multi-role auth, audit log, PDF export, no internet required.",
-    link: "/projects",
-    linkLabel: "Details →",
-  },
-  {
-    title: "Milan ISP Management System",
-    tag: "Live",
-    tagClass: "tag green",
-    tech: "PHP · MySQL · JavaScript",
-    desc: "Full ISP back-office for subscriber management, field technician dispatch, tickets, and cable inventory.",
-    link: "https://milansip.mctv.co.tz",
-    linkLabel: "View Live ↗",
-  },
-  {
-    title: "TapServe — QR Ordering",
-    tag: "Ongoing",
-    tech: "Express · PostgreSQL · Socket.io",
-    desc: "QR restaurant ordering with real-time kitchen alerts, 3D food previews, and full payment management.",
-    link: "/projects",
-    linkLabel: "Details →",
-  },
-  {
-    title: "ZYNET IPTV Web App",
-    tag: "PWA",
-    tagClass: "tag green",
-    tech: "React · Vite · hls.js · Docker",
-    desc: "Progressive Web App for live IPTV streaming, deployed on Ubuntu with Nginx and Docker.",
-    link: "/projects",
-    linkLabel: "Details →",
-  },
-  {
-    title: "CHARTBOT — Algo Trading for MT5",
-    tag: "Final Year Project",
-    tagClass: "tag purple",
-    tech: "HTML · CSS · JS · Python",
-    desc: "Interactive chart-based trading chatbot with a Python backend for technical analysis and signal generation.",
-    link: "/projects",
-    linkLabel: "Details →",
-  },
+  { label: "Instagram", value: "@namigrouptz", href: "https://instagram.com/namigrouptz" },
 ];
 
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <Reveal>
-          <div className="hero-badge">
-            <span className="dot" />
-            OPEN TO WORK &amp; COLLABORATIONS
-          </div>
-        </Reveal>
+      <header>
+        <div className="wrap">
+          <a className="logo" href="#top" aria-label="Joseph Billa, home">
+            <span>
+              Joseph <b>Billa</b>
+            </span>
+            <small>Full-stack developer</small>
+          </a>
+          <nav>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact" className="hire">
+              Hire me
+            </a>
+          </nav>
+        </div>
+      </header>
 
-        <Reveal delay={100}>
-          <div className="avatar-wrap float-slow">
-            <div className="avatar-glow" />
-            <div className="avatar-ring" />
-            <div className="avatar-ring-2" />
-            <Image
-              src="/pro-pic.png"
-              alt="Joseph Billa — profile photo"
-              width={150}
-              height={150}
-              priority
-              style={{
-                borderRadius: "50%",
-                objectFit: "cover",
-                border: "3px solid rgba(34,211,238,0.6)",
-                position: "relative",
-              }}
-            />
-          </div>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <h1>Joseph Billa</h1>
-        </Reveal>
-
-        <Reveal delay={280}>
-          <p className="role-line">
-            <span className="text-muted">&gt;_</span>{" "}
-            <TypingText
-              words={[
-                "Full-Stack Developer",
-                "FX, Stocks & Crypto Trader",
-                "React & Next.js Engineer",
-                "Python & FastAPI Builder",
-                "Problem Solver",
-              ]}
-            />
-          </p>
-        </Reveal>
-
-        <Reveal delay={360}>
-          <p className="lead">
-            Self-driven Computer Science graduate with hands-on expertise in
-            building dynamic, responsive web applications — from multi-tenant
-            ERPs to real-time trading platforms. Clean code, sharp problem
-            solving, and a genuine love for impactful digital solutions.
-          </p>
-        </Reveal>
-
-        <Reveal delay={440}>
-          <div className="hero-ctas">
-            <Link href="/projects" className="btn btn-primary">
-              View Projects
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </Link>
-            <Link href="/contact" className="btn btn-ghost">
-              Contact Me
-            </Link>
-          </div>
-        </Reveal>
-
-        <Reveal delay={520}>
-          <div className="socials">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target={s.href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                className="social-link"
-                title={s.label}
-                aria-label={s.label}
-              >
-                <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                  <path d={s.d} />
-                </svg>
+      <div className="wrap">
+        <div className="hero" id="top">
+          <div className="rv">
+            <p className="label">Full-stack developer · Arusha, Tanzania</p>
+            <h1>
+              Software for the work that <em>keeps a business running.</em>
+            </h1>
+            <p className="lede">
+              I’m a First Class Computer Science graduate who designs and ships
+              ERPs, billing systems and real-time platforms for companies that
+              rely on them every day.
+            </p>
+            <div className="cta">
+              <a className="btn solid" href="#work">
+                See the work
               </a>
-            ))}
+              <a className="btn ghost" href="#contact">
+                Start a conversation
+              </a>
+            </div>
           </div>
-        </Reveal>
-
-        <Reveal delay={600}>
-          <div className="stats-grid">
-            <StatCounter value={8} suffix="+" label="Projects Built" />
-            <StatCounter value={10} suffix="+" label="Technologies" />
-            <StatCounter value={4} suffix=".4" label="GPA · First Class" />
-            <StatCounter value={2} label="Markets Traded" />
+          <div className="portrait rv">
+            <div className="frame">
+              <Image
+                src="/pro-pic.png"
+                alt="Portrait of Joseph Billa"
+                fill
+                priority
+                sizes="(max-width: 820px) 300px, 380px"
+              />
+            </div>
+            <div className="tag">
+              <b>Joseph Billa</b>Full-stack developer
+              <br />
+              and market trader
+            </div>
           </div>
-        </Reveal>
-      </section>
+        </div>
 
-      <Reveal delay={200}>
-        <TechMarquee />
-      </Reveal>
-
-      <section className="section" id="featured">
-        <Reveal>
-          <div className="section-head">
-            <span className="section-eyebrow">{"// featured_work"}</span>
-            <h2>
-              Selected <span className="gradient-text">Projects</span>
-            </h2>
-            <div className="underline" />
-          </div>
-        </Reveal>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
-            gap: 22,
-          }}
-        >
-          {featured.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              <TiltCard className="h-100">
-                <div className="card-top">
-                  <h3 className="card-title">{p.title}</h3>
-                  <span className={`tag ${p.tagClass ?? ""}`}>{p.tag}</span>
-                </div>
-                <div className="card-body">
-                  <p className="tech-line">{p.tech}</p>
-                  <p className="text-muted" style={{ marginTop: 10, fontSize: 14.5, lineHeight: 1.65 }}>
-                    {p.desc}
-                  </p>
-                  <a
-                    className="card-link"
-                    href={p.link}
-                    {...(p.download
-                      ? { download: "MCTV_ERP_Presentation.pptx" }
-                      : p.link.startsWith("http")
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                  >
-                    {p.linkLabel}
-                  </a>
-                </div>
-              </TiltCard>
-            </Reveal>
+        <div className="facts rv">
+          {facts.map((f) => (
+            <div key={f.label}>
+              <b>{f.value}</b>
+              <span>{f.label}</span>
+            </div>
           ))}
         </div>
 
-        <Reveal delay={150}>
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <Link href="/projects" className="btn btn-ghost">
-              See all projects
-            </Link>
+        <section id="work">
+          <div className="sec-head rv">
+            <p className="label">Selected work</p>
+            <h2>Systems in daily use, and a few still being built.</h2>
           </div>
-        </Reveal>
-      </section>
+          <div className="rv">
+            <WorkAccordion items={work} />
+          </div>
+        </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
-        <Reveal>
-          <div className="terminal">
-            <div className="terminal-bar">
-              <span className="t-dot red" />
-              <span className="t-dot yellow" />
-              <span className="t-dot green" />
-              <span className="t-title">joseph@developer: ~/portfolio</span>
-            </div>
-            <div className="terminal-body">
-              <p>
-                <span className="c-key">$</span> whoami
+        <section id="about">
+          <div className="about rv">
+            <p className="label">About</p>
+            <div>
+              <p className="big">
+                I like software that people stop noticing because it simply
+                works: a ledger that balances, a dispatch board that never drops
+                a ticket.
               </p>
               <p>
-                <span className="c-ok">Joseph Billa</span>
-                <span className="c-comment">  # Full-Stack Developer &amp; Trader</span>
+                My work sits close to real operations: accounting, networks,
+                restaurants, trading. That means clean data models, honest
+                testing, and interfaces staff can learn in an afternoon.
               </p>
               <p>
-                <span className="c-key">$</span> cat skills.txt
-              </p>
-              <p>
-                <span className="c-str">[JavaScript, TypeScript, React, Next.js, Node.js, Express,</span>
-              </p>
-              <p>
-                <span className="c-str"> Python, FastAPI, PHP, PostgreSQL, MySQL, MongoDB, Docker,</span>
-              </p>
-              <p>
-                <span className="c-str"> Socket.io, Redis, PWA, Linux]</span>
-              </p>
-              <p>
-                <span className="c-key">$</span> status
-              </p>
-              <p>
-                <span className="c-ok">✔ available_for_hire</span>{" "}
-                <span className="c-comment"># let&apos;s build something great</span>
+                Away from the keyboard I trade FX, stocks and crypto, which is
+                where my interest in fast, reliable, real-time systems comes
+                from.
               </p>
             </div>
           </div>
-        </Reveal>
-      </section>
+
+          <div className="how rv">
+            <div>
+              <em>01</em>
+              <h3>Understand the operation</h3>
+              <p>
+                I start with how the business actually runs, then model the data
+                around it.
+              </p>
+            </div>
+            <div>
+              <em>02</em>
+              <h3>Build it to be tested</h3>
+              <p>
+                Automated tests and clear roles from the first week, not the
+                last.
+              </p>
+            </div>
+            <div>
+              <em>03</em>
+              <h3>Ship and stay</h3>
+              <p>
+                Containerised deployments and a system I’m willing to support
+                after launch.
+              </p>
+            </div>
+          </div>
+
+          <div className="skills rv">
+            <p className="label">Toolkit</p>
+            <dl>
+              {toolkit.map(([dt, dd]) => (
+                <div key={dt} style={{ display: "contents" }}>
+                  <dt>{dt}</dt>
+                  <dd>{dd}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="cv rv">
+            <p className="label">Education &amp; experience</p>
+            <div className="cv-list">
+              <div className="cv-item">
+                <span className="cv-when">2022 — 2025</span>
+                <div>
+                  <h3>BSc Computer Science, First Class Honours</h3>
+                  <p>
+                    Institute of Accountancy Arusha (IAA) · Arusha, Tanzania ·
+                    GPA 4.4 / 5.0
+                  </p>
+                  <p>
+                    Final-year project: CHARTBOT — Advanced Algorithmic Trading
+                    for MT5.
+                  </p>
+                </div>
+              </div>
+              <div className="cv-item">
+                <span className="cv-when">Jul — Sep 2024</span>
+                <div>
+                  <h3>
+                    IT Field Service — Regional Commissioner’s Office (RAS)
+                  </h3>
+                  <p>Arusha, Tanzania</p>
+                  <p>
+                    Deployed and maintained network systems and office IT
+                    infrastructure, installed and configured software, supported
+                    and troubleshot for end users, and documented field reports.
+                  </p>
+                </div>
+              </div>
+              <div className="cv-item">
+                <span className="cv-when">Certifications</span>
+                <div>
+                  <h3>Training &amp; credentials</h3>
+                  <p>Full-Stack Web Development — online training</p>
+                  <p>Git &amp; Version Control Essentials — Codecademy</p>
+                  <p>Intro to APIs — freeCodeCamp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className="contact" id="contact">
+        <div className="wrap cgrid rv">
+          <div>
+            <p className="label">Contact</p>
+            <h2>
+              Have a system that needs <em>building?</em>
+            </h2>
+            <p className="sub">
+              Have a project in mind, a role to fill, or just want to talk
+              trading? Send a brief below or reach me directly. I reply fast.
+            </p>
+            <div className="rows" id="rows">
+              {contactRows.map((row) => (
+                <a
+                  key={row.label}
+                  href={row.href}
+                  target={row.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                >
+                  <span>
+                    <small>{row.label}</small>
+                    {row.value}
+                  </span>
+                  <span>↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <ContactForm />
+        </div>
+      </div>
+
+      <div className="wrap">
+        <footer>
+          <span>© 2022 Joseph Billa</span>
+          <span>Arusha, Tanzania</span>
+        </footer>
+      </div>
+
+      <ScrollReveal />
     </>
   );
 }

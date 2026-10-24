@@ -1,23 +1,11 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
-import ParticleField from "@/components/ParticleField";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Joseph Billa — Full-Stack Developer",
+  title: "Joseph Billa — Full-Stack Developer, Arusha",
   description:
-    "Portfolio of Joseph Billa — Full-Stack Developer and FX, Stocks & Crypto Trader. Building dynamic, responsive web applications with modern technology.",
+    "Joseph Billa — Full-stack developer in Arusha, Tanzania. I design and ship ERPs, billing systems and real-time platforms for businesses that rely on them every day.",
   icons: { icon: "/favicon.ico" },
 };
 
@@ -28,26 +16,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ParticleField />
-        <NavBar />
-        <main className="container" style={{ minHeight: "70vh" }}>
-          {children}
-        </main>
-        <footer className="footer">
-          <div className="container">
-            <p>
-              © 2022 <span className="code">Joseph Billa</span> —
-              Designed &amp; built with <span className="heart">♥</span> using{" "}
-              <span className="code">Next.js</span> +{" "}
-              <span className="code">React</span>
-            </p>
-            <p style={{ marginTop: 6, fontSize: 12.5 }}>
-              Full-Stack Developer | FX, Stocks &amp; Crypto Trader
-            </p>
-          </div>
-        </footer>
-      </body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
